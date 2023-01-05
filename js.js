@@ -240,6 +240,6 @@ function getStrength() {
         }
     });
 
-    const str = Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 0);
+    const str = Math.max(100 - (100 / (requirements.length + 2)) * multiplier, 0);
     document.querySelector('progress').value = str;
 }
