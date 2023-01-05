@@ -62,3 +62,11 @@ p {
     text-align: right;
     /* line-height: 25px; */
 }
+
+code {
+    display: block;
+    background-color: grey;
+    border: 1px solid white;
+    padding: 10px;
+    font-family: monospace;
+}

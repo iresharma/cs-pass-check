@@ -209,13 +209,23 @@ const commonPassword = [
     'love123',
 ];
 
+const hashBrowser = val =>
+    crypto.subtle
+        .digest('SHA-256', new TextEncoder('utf-8').encode(val))
+        .then(h => {
+            let hexes = [],
+                view = new DataView(h);
+            for (let i = 0; i < view.byteLength; i += 4)
+                hexes.push(('00000000' + view.getUint32(i).toString(16)).slice(-8));
+            return hexes.join('');
+        });
+
 const input = document.querySelector('input');
 input.onkeyup = getStrength
 
 function getStrength() {
     const password = document.querySelector('input').value;
     let multiplier = password.length > 5 ? 0 : 1;
-
     requirements.forEach((requirement) => {
         if (requirement.re) {
             if (!requirement.re.test(password)) {
@@ -242,4 +252,15 @@ function getStrength() {
 
     const str = Math.max(100 - (100 / (requirements.length + 2)) * multiplier, 0);
     document.querySelector('progress').value = str;
+    hashBrowser(password).then(data => {
+        document.querySelector('code').innerHTML = data
+
+        if (password.length == 0) {
+            document.querySelector('code').innerHTML = 'Hash code here'
+            document.querySelector(`#commonPass`).style.color = 'red';
+            document.querySelector('progress').value = 0;
+            return;
+        }
+    })
+
 }
