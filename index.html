@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css.css">
+    <title>Password Strength Checker</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Cyber Security Assignment</h1>
+        </header>
+        <main>
+            <div></div>
+            <div class="input-wrapper">
+                <label for="file">Password</label>
+                <br>
+                <input type="password" onchange="getStrength()" />
+                <br>
+                <label for="file">Password Strength</label>
+                <progress id="file" value="0" max="100"> 32% </progress>
+                <ul type="none">
+                    <li id="length">Password length should be more than 6</li>
+                    <li id="number">Includes number</li>
+                    <li id="lower">Includes lowercase letter</li>
+                    <li id="upper">Includes uppercase letter</li>
+                    <li id="symbol">Includes special symbol</li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    Passwords are the key to almost everything you do online, and you probably have multiple passwords
+                    that you use throughout the day. Choosing hard-to-hack passwords and managing them securely can
+                    sometimes seem inconvenient. Fortunately, there are simple ways to make your passwords as secure as
+                    possible. Doing so can keep hackers from taking over your accounts, and prevent theft of your
+                    information (or money from online banking!).
+                    <br><br><br>
+                    <a
+                        href="https://www.it.ucsb.edu/secure-compute-research-environment-user-guide/password-best-practices">Read
+                        more -></a>
+                </p>
+            </div>
+            <div></div>
+        </main>
+        <footer>
+            <h4>Made with ❤️ by <a href="https://github.com/iresharma">@iresharma</a></h4>
+        </footer>
+    </div>
+    <script src="./js.js"></script>
+</body>
+
+</html>
